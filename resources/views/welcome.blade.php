@@ -27,28 +27,36 @@
 
 <style type="text/css">
 
+
+
+
+
+
+
+
+
     .wrapper_tag {
         position: relative;
         perspective: 40em;
         display: grid;
-        padding: 6px;
+        padding: 4px;
         transform-style: preserve-3d;
         border-radius: 8px;
     }
 
     .card_tag {
         grid-area: 1 / 1;
-        height: 180px;
-        width: 96.5%; /*600px*/
+        height: 150px; /*180px*/
+        width: 98%; /*600px*/
         transform: translateX(10px) rotateY(25deg) rotateX(10deg);
         background: rgba(33, 150, 243, 0.9);
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        padding: 30px;
+        padding: 20px;
         color: #FFFFFF;
         text-transform: uppercase;
-        font-size: 18px;
+        font-size: 12px;
         font-weight: 900;
         backface-visibility: hidden;
         box-shadow: 0 10px 30px -3px rgba(0,0,0,.1);
@@ -72,7 +80,7 @@
         content: '';
         backface-visibility: hidden;
         height: 100%;
-        width: 96.5%;
+        width: 98%;
         margin-top: calc(-1 * var(--bw));
         margin-left: calc(-1 * var(--bw));
         background: transparent;
@@ -152,7 +160,7 @@
 
     .ml14 {
         font-weight: 700;
-        font-size: 165px;
+        font-size: 120px;
         text-shadow:
             -4px -4px 0 #fff,
             4px -4px 0 #fff,
@@ -174,10 +182,11 @@
         left: 0;
         height: 10px;
         width: 100%;
-        background-color: #fff;
+        background-color: white;
         transform-origin: 100% 100%;
         bottom: 0;
-        margin-bottom: 18px;
+        margin-bottom: 8px;
+        border-radius: 4px;
     }
 
     .ml14 .letter {
@@ -266,6 +275,9 @@
         <span class="d-block d-lg-none  mx-0 px-0"><img src="{{ URL::asset('assets/img/logo-white.png') }}" alt="" class="img-fluid"></span>
         <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ URL::asset('assets/img/profile.jpg') }}" alt=""></span>
     </a>
+
+
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -310,7 +322,7 @@
         <div class="my-auto">
 
             <ul class="list-inline list-social-icons">
-                <li class="list-inline-item" style="margin-right: 18px">
+                <li class="list-inline-item" style="margin-right: -5px">
                     <a href="https://facebook.com/divianisok">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
@@ -318,7 +330,7 @@
                         </span>
                     </a>
                 </li>
-                <li class="list-inline-item" style="margin-right: 18px">
+                <li class="list-inline-item" style="margin-right: -5px">
                     <a href="https://www.instagram.com/divianisok">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
@@ -326,7 +338,7 @@
                         </span>
                     </a>
                 </li>
-                <li class="list-inline-item" style="margin-right: 18px">
+                <li class="list-inline-item" style="margin-right: -5px">
                     <a href="https://www.linkedin.com/in/divianis-oktaviyani-59855119b">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
@@ -334,7 +346,7 @@
                         </span>
                     </a>
                 </li>
-                <li class="list-inline-item" style="margin-right: 18px">
+                <li class="list-inline-item" style="margin-right: -5px">
                     <a href="https://github.com/divianis">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
@@ -342,7 +354,7 @@
                         </span>
                     </a>
                 </li>
-                <li class="list-inline-item" style="margin-right: 18px">
+                <li class="list-inline-item" style="margin-right: -5px">
                     <a href="https://gitlab.com/divianis">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
@@ -350,7 +362,7 @@
                         </span>
                     </a>
                 </li>
-                <li class="list-inline-item" style="margin-right: 18px">
+                <li class="list-inline-item" style="margin-right: -5px">
                     <a href="https://stackoverflow.com/users/11714562/divianis">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
@@ -368,18 +380,19 @@
             </h5>
 
             <div class="subheading mb-5" style="color: black">
-                <strong>THERE ARE NO TRUE FRIENDS IN THIS WORLD, EXCEPT
-                    <font color="white">ERRORS & BUGS</font>
+                <strong>DON'T LET ONE MISTAKE RUIN A
+                <font color="white">BEAUTIFUL THINGS</font>
                 </strong>
             </div>
 
             <div class="wrapper_tag">
                 <div class="card_tag">
                     <p class="mt-3">
-                        <span class="enclosed">DATE OF BIRTH</span><font size="3.5px"> : Kediri, 5<sup>th</sup> August 1999<br></font>
-                        <span class="enclosed">GENDER</span><font size="3.5px"> : Male<br></font>
-                        <span class="enclosed">LANGUAGE</span><font size="3.5px"> : Indonesian & English<br></font>
-                        <span class="enclosed">FREELANCE</span><font size="3.5px"> : Available<br></font>
+                        <span class="enclosed">PLACE OF BIRTH</span><font size="2px"> : Kediri City, East Java<br></font>
+                        <span class="enclosed">DATE OF BIRTH</span><font size="2px"> : 5<sup>th</sup> August 1999<br></font>
+                        <span class="enclosed">LANGUAGE</span><font size="2px"> : Indonesian & English<br></font>
+                        <span class="enclosed">GENDER</span><font size="2px"> : Male<br></font>
+                        <span class="enclosed">FREELANCE</span><font size="2px"> : Available<br></font>
                     </p>
                 </div>
             </div>
@@ -671,22 +684,22 @@
             <div class="skill-bar-percent" style="color: black">75%</div>
         </div>
 
-        <div class="skillbar clearfix " data-percent="45%" style="margin-bottom: 30px">
+        <div class="skillbar clearfix " data-percent="55%" style="margin-bottom: 30px">
             <div class="skillbar-title" style="background: #76ff03; text-align: center;"><span>COREL DRAW</span></div>
             <div class="skillbar-bar" style="background: #b2ff59;"></div>
-            <div class="skill-bar-percent" style="color: black">45%</div>
+            <div class="skill-bar-percent" style="color: black">55%</div>
         </div>
 
-        <div class="skillbar clearfix " data-percent="40%" style="margin-bottom: 30px">
+        <div class="skillbar clearfix " data-percent="50%" style="margin-bottom: 30px">
             <div class="skillbar-title" style="background: #d32f2f; text-align: center;"><span>FIGMA</span></div>
             <div class="skillbar-bar" style="background: #ef5350;"></div>
-            <div class="skill-bar-percent" style="color: black">40%</div>
+            <div class="skill-bar-percent" style="color: black">50%</div>
         </div>
 
-        <div class="skillbar clearfix " data-percent="30%" style="margin-bottom: 30px">
+        <div class="skillbar clearfix " data-percent="60%" style="margin-bottom: 30px">
             <div class="skillbar-title" style="background: #4e342e; text-align: center;"><span>10 FINGER TYPING</span></div>
             <div class="skillbar-bar" style="background: #795548;"></div>
-            <div class="skill-bar-percent" style="color: black">30%</div>
+            <div class="skill-bar-percent" style="color: black">60%</div>
         </div>
     </div>
 </section>
