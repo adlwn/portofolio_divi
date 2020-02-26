@@ -27,6 +27,75 @@
 
 <style type="text/css">
 
+    .wrapper_tag {
+        position: relative;
+        perspective: 40em;
+        display: grid;
+        padding: 6px;
+        transform-style: preserve-3d;
+        border-radius: 8px;
+    }
+
+    .card_tag {
+        grid-area: 1 / 1;
+        height: 180px;
+        width: 96.5%; /*600px*/
+        transform: translateX(10px) rotateY(25deg) rotateX(10deg);
+        background: rgba(33, 150, 243, 0.9);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 30px;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 900;
+        backface-visibility: hidden;
+        box-shadow: 0 10px 30px -3px rgba(0,0,0,.1);
+        border-radius: 8px;
+    }
+
+    .card_tag .enclosed {
+        background: #000;
+        line-height: 2;
+        color: rgba(255, 255, 255, 1);
+        padding: 0 5px;
+        /*display: inline-block;*/
+        transform: translate(-1px, 1px) scale(0.75);
+        transform-origin: right center;
+        border-radius: 8px;
+    }
+
+    .wrapper_tag:before {
+        --bw: 9px;
+        grid-area: 1 / 1;
+        content: '';
+        backface-visibility: hidden;
+        height: 100%;
+        width: 96.5%;
+        margin-top: calc(-1 * var(--bw));
+        margin-left: calc(-1 * var(--bw));
+        background: transparent;
+        transform: translateX(-60px) rotateY(-30deg) rotateX(15deg) scale(1.03);
+        pointer-events: none;
+        border: var(--bw) solid #FFFFFF;
+        box-sizing: content-box;
+        border-radius: 8px;
+    }
+
+
+    .wrapper_tag:hover > div,
+    .wrapper_tag:hover:before {
+        transform: none;
+    }
+
+
+    .wrapper_tag > div,
+    .wrapper_tag:before {
+        will-change: transform;
+        transition: .3s transform cubic-bezier(.25,.46,.45,1);
+    }
+
     .skillbar {
         position:relative;
         display:block;
@@ -83,12 +152,12 @@
 
     .ml14 {
         font-weight: 700;
-        font-size: 6.5em;
+        font-size: 165px;
         text-shadow:
-            -2px -2px 0 #fff,
-            2px -2px 0 #fff,
-            -2px 2px 0 #fff,
-            2px 2px 0 #fff;
+            -4px -4px 0 #fff,
+            4px -4px 0 #fff,
+            -4px 4px 0 #fff,
+            4px 4px 0 #fff;
     }
 
     .ml14 .text-wrapper {
@@ -103,16 +172,17 @@
         opacity: 0;
         position: absolute;
         left: 0;
-        height: 2px;
+        height: 10px;
         width: 100%;
         background-color: #fff;
         transform-origin: 100% 100%;
         bottom: 0;
+        margin-bottom: 18px;
     }
 
     .ml14 .letter {
         display: inline-block;
-        line-height: 1em;
+        line-height: 0.6em;
     }
 
     .fa-python {
@@ -193,43 +263,40 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none  mx-0 px-0"><img src="{{ URL::asset('assets/img/logo-white.png') }}" alt=""
-                                                        class="img-fluid"></span>
-        <span class="d-none d-lg-block">
-          <img class="img-fluid img-profile rounded-circle mx-auto mb-2"
-               src="{{ URL::asset('assets/img/profile.jpg') }}" alt="">
-        </span>
+        <span class="d-block d-lg-none  mx-0 px-0"><img src="{{ URL::asset('assets/img/logo-white.png') }}" alt="" class="img-fluid"></span>
+        <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ URL::asset('assets/img/profile.jpg') }}" alt=""></span>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#abouts">About</a>
+                <a class="nav-link js-scroll-trigger" href="#abouts"><strong>About</strong></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#experiences">Experience</a>
+                <a class="nav-link js-scroll-trigger" href="#experiences"><strong>Experience</strong></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#interests">Interest</a>
+                <a class="nav-link js-scroll-trigger" href="#interests"><strong>Interest</strong></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#portfolios">Portfolio</a>
+                <a class="nav-link js-scroll-trigger" href="#portfolios"><strong>Portfolio</strong></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#skills">Primary Skill</a>
+                <a class="nav-link js-scroll-trigger" href="#skills"><strong>Primary Skill</strong></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#oskills">Other Skill</a>
+                <a class="nav-link js-scroll-trigger" href="#oskills"><strong>Other Skill</strong></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#educations">Education</a>
+                <a class="nav-link js-scroll-trigger" href="#educations"><strong>Education</strong></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#maps">Navigation</a>
-            </li>
+
+            {{--            <li class="nav-item">--}}
+            {{--                <a class="nav-link js-scroll-trigger" href="#maps">Navigation</a>--}}
+            {{--            </li>--}}
+
         </ul>
     </div>
 </nav>
@@ -242,40 +309,16 @@
     <section class="resume-section p-3 p-lg-5 d-flex d-column" id="abouts">
         <div class="my-auto">
 
-            {{--              <img src="{{ URL::asset('assets/img/logo-s.png') }}" class="img-fluid mb-3" alt="">--}}
-
-            <h1 class="ml14">
-            <span class="text-wrapper">
-                <span class="letters" style="color:#2196F3">DIVIANIS</span>
-            <span class="line"></span>
-            </span>
-            </h1>
-
-            {{--            <h1 class="mb-0">Divianis--}}
-            {{--                <span class="text-primary">Oktaviyani</span>--}}
-            {{--            </h1>--}}
-
-            <div class="subheading mb-5" style="color: black">
-                <strong>I LOVE EVERYTHING, EXCEPT
-                    <font color="white">ERRORS & BUGS</font>
-                </strong>
-            </div>
-            <p class="mb-5" style="max-width: 640px; color: black" align="justify">
-                <strong>"Hello there, I have a best quote from my mother, she said that we should not underestimate other people. Losing does not mean failure and winning does not mean success. Be the best for yourself and your family."
-                </strong>
-            </p>
-            <ul class="list-inline list-social-icons mb-0">
-                <li class="list-inline-item">
-
+            <ul class="list-inline list-social-icons">
+                <li class="list-inline-item" style="margin-right: 18px">
                     <a href="https://facebook.com/divianisok">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
                             <i class="fab fa-facebook fa-stack-1x fa-inverse fa-spin"></i>
                         </span>
                     </a>
-
                 </li>
-                <li class="list-inline-item">
+                <li class="list-inline-item" style="margin-right: 18px">
                     <a href="https://www.instagram.com/divianisok">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
@@ -283,7 +326,7 @@
                         </span>
                     </a>
                 </li>
-                <li class="list-inline-item">
+                <li class="list-inline-item" style="margin-right: 18px">
                     <a href="https://www.linkedin.com/in/divianis-oktaviyani-59855119b">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
@@ -291,7 +334,7 @@
                         </span>
                     </a>
                 </li>
-                <li class="list-inline-item">
+                <li class="list-inline-item" style="margin-right: 18px">
                     <a href="https://github.com/divianis">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
@@ -299,390 +342,433 @@
                         </span>
                     </a>
                 </li>
+                <li class="list-inline-item" style="margin-right: 18px">
+                    <a href="https://gitlab.com/divianis">
+                        <span class="fa-stack fa-lg">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-gitlab fa-stack-1x fa-inverse fa-spin"></i>
+                        </span>
+                    </a>
+                </li>
+                <li class="list-inline-item" style="margin-right: 18px">
+                    <a href="https://stackoverflow.com/users/11714562/divianis">
+                        <span class="fa-stack fa-lg">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-stack-overflow fa-stack-1x fa-inverse fa-spin"></i>
+                        </span>
+                    </a>
+                </li>
             </ul>
-        </div>
-    </section>
 
-    <!--====================================================
-                        EXPERIENCES
-    ======================================================-->
-    <section class="resume-section p-3 p-lg-5 " id="experiences">
-        <div class="row my-auto">
-            <div class="col-12">
-                <h2 class="text-center">Experiences</h2>
-                <div class="mb-5 heading-border"></div>
-            </div>
-            <div class="resume-item col-md-12 col-sm-12 ">
-                <div class="card mx-0 p-4 mb-5"
-                     style="border-color: #17a2b8; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
-                    <div class=" resume-content mr-auto">
-                        <h4 class="mb-3"><i class="fas fa-warehouse mr-3 text-info"></i> PT. Erporate Solusi Global</h4>
-                        <p align="justify">Being front-end web developer intern using Laravel framework to fixing sidebar content, improve select2, and datatable converting from clint-side to server-side in career dashboard PT. Erporate Solusi Global, Sleman, Depok, Yogyakarta.</p>
-                    </div>
-                    <div class="resume-date text-md-right">
-                        <span class="text-primary">6th January 2020 - 28th February 2020</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            <h5 class="ml14">
+                <span class="text-wrapper">
+                    <span class="letters" style="color:#2196F3">DIVIANIS</span>
+                    <span class="line"></span>
+                </span>
+            </h5>
 
-    <!--====================================================
-                        INTERESTS
-    ======================================================-->
-    <section class="resume-section p-3 p-lg-5 " id="interests">
-        <div class="row my-auto">
-            <div class="col-12">
-                <h2 class="text-center">Interests</h2>
-                <div class="mb-5 heading-border"></div>
+            <div class="subheading mb-5" style="color: black">
+                <strong>THERE ARE NO TRUE FRIENDS IN THIS WORLD, EXCEPT
+                    <font color="white">ERRORS & BUGS</font>
+                </strong>
             </div>
-            <div class="resume-item col-md-6 col-sm-12 ">
-                <div class="card mx-0 p-4 mb-5"
-                     style="border-color: #17a2b8; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
-                    <div class=" resume-content mr-auto">
-                        <h4 class="mb-3"><i class="fas fa-laptop-code mr-3 text-info"></i> Front-End Web Developer</h4>
-                        <p align="justify">Not very good at Javascript, but understand about CSS3 and HTML5. Not interested in build some templates from the beginning. In progress to learning about Javascript with many references. From now, I'm looking for a projects as a front-end web developer.</p>
-                    </div>
-                    <div class="resume-date text-md-right">
-                        <span class="text-primary">January 2019 - Now</span>
-                    </div>
+
+            <div class="wrapper_tag">
+                <div class="card_tag">
+                    <p class="mt-3">
+                        <span class="enclosed">DATE OF BIRTH</span><font size="3.5px"> : Kediri, 5<sup>th</sup> August 1999<br></font>
+                        <span class="enclosed">GENDER</span><font size="3.5px"> : Male<br></font>
+                        <span class="enclosed">LANGUAGE</span><font size="3.5px"> : Indonesian & English<br></font>
+                        <span class="enclosed">FREELANCE</span><font size="3.5px"> : Available<br></font>
+                    </p>
                 </div>
             </div>
-            <div class="resume-item col-md-6 col-sm-12">
-                <div class="card mx-0 p-4 mb-5"
-                     style="border-color: #ffc107; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
-                    <div class="resume-content mr-auto">
-                        <h4 class="mb-3"><i class="fa fa-laptop mr-3 text-warning"></i> Back-End Web Developer</h4>
-                        <p align="justify">Still new as a back-end web developer, I'm using Laravel Framework with PHP programming language. Already knew a few about REST API and decide to try build at least one this year. For futher, I'm looking for a CMS projects.
-                        </p>
-                    </div>
-                    <div class="resume-date text-md-right">
-                        <span class="text-primary">January 2020 - Now</span>
-                    </div>
+
+    </div>
+</section>
+
+<!--====================================================
+                    EXPERIENCES
+======================================================-->
+<section class="resume-section p-3 p-lg-5 " id="experiences">
+    <div class="row my-auto">
+        <div class="col-12">
+            <h2 class="text-center">Experiences</h2>
+            <div class="mb-5 heading-border"></div>
+        </div>
+        <div class="resume-item col-md-12 col-sm-12 ">
+            <div class="card mx-0 p-4 mb-5"
+                 style="border-color: #17a2b8; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
+                <div class=" resume-content mr-auto">
+                    <h4 class="mb-3"><i class="fas fa-warehouse mr-3 text-info"></i> PT. Erporate Solusi Global</h4>
+                    <p align="justify">Being front-end web developer intern using Laravel framework to fixing sidebar content, improve select2, and datatable converting from clint-side to server-side in career dashboard PT. Erporate Solusi Global, Sleman, Depok, Yogyakarta.</p>
                 </div>
-            </div>
-            <div class="resume-item col-md-6 col-sm-12">
-                <div class="card mx-0 p-4 mb-5"
-                     style="border-color: #28a745; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
-                    <div class="resume-content mr-auto">
-                        <h4 class="mb-3"><i class="fas fa-mobile-alt mr-3 text-success"></i> Android Apps Developer</h4>
-                        <p align="justify">
-                            Interested for using Java programming language inside Android Studio, I'm still in progress to learning native Android development until now. For futher, I'll try to build some simple apps first before taking on large projects.
-                        </p>
-                    </div>
-                    <div class="resume-date text-md-right">
-                        <span class="text-primary">August 2019 - Now</span>
-                    </div>
-                </div>
-            </div>
-            <div class="resume-item col-md-6 col-sm-12">
-                <div class="card mx-0 p-4 mb-5"
-                     style="border-color: #2196f3; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
-                    <div class="resume-content mr-auto">
-                        <h4 class="mb-3"><i class="fas fa-mobile-alt mr-3 text-primary"></i> Cross-Platform Apps Developer</h4>
-                        <p align="justify">
-                            As cross-platform apps developer, I'm using Dart programming language with Flutter plugin inside Android Studio to build apps. For further, I'm still learning React Native as a popular programming language on this decade.
-                        </p>
-                    </div>
-                    <div class="resume-date text-md-right">
-                        <span class="text-primary">December 2018 - Now</span>
-                    </div>
+                <div class="resume-date text-md-right">
+                    <span class="text-primary">6th January 2020 - 28th February 2020</span>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!--====================================================
-                        PORTFOLIOS
-    ======================================================-->
-    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="portfolios">
-        <div class="row my-auto">
-            <div class="col-12">
-                <h2 class="text-center">Portfolios</h2>
-                <div class="mb-5 heading-border"></div>
-            </div>
-            <div class="col-md-12">
-                <div class="port-head-cont">
-                    <button class="btn btn-general btn-green filter-b" data-filter="all">All</button>
-                    <button class="btn btn-general btn-green filter-b" data-filter="web">Web Projects</button>
-                    <button class="btn btn-general btn-green filter-b" data-filter="android">Android Projects</button>
-                    <button class="btn btn-general btn-green filter-b" data-filter="cross-platform">Cross-Platform Projects</button>
-                    <button class="btn btn-general btn-green filter-b" data-filter="datascience">Data Science Projects</button>
+<!--====================================================
+                    INTERESTS
+======================================================-->
+<section class="resume-section p-3 p-lg-5 " id="interests">
+    <div class="row my-auto">
+        <div class="col-12">
+            <h2 class="text-center">Interests</h2>
+            <div class="mb-5 heading-border"></div>
+        </div>
+        <div class="resume-item col-md-6 col-sm-12 ">
+            <div class="card mx-0 p-4 mb-5"
+                 style="border-color: #17a2b8; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
+                <div class=" resume-content mr-auto">
+                    <h4 class="mb-3"><i class="fas fa-laptop-code mr-3 text-info"></i> Front-End Web Developer</h4>
+                    <p align="justify">Not very good at Javascript, but understand about CSS3 and HTML5. Not interested in build some templates from the beginning. In progress to learning about Javascript with many references. From now, I'm looking for a projects as a front-end web developer.</p>
+                </div>
+                <div class="resume-date text-md-right">
+                    <span class="text-primary">January 2019 - Now</span>
                 </div>
             </div>
         </div>
-        <div class="row my-auto">
-            <div class="col-sm-4 portfolios-item filter web">
-                <a class="portfolios-link" href="#portfolioModal1" data-toggle="modal">
-                    <div class="caption-port">
-                        <div class="caption-port-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="{{ URL::asset('assets/img/portfolio/Web - Adelwine.png') }}" alt="">
-                </a>
-            </div>
-            <div class="col-sm-4 portfolios-item filter android">
-                <a class="portfolios-link" href="#portfolioModal2" data-toggle="modal">
-                    <div class="caption-port">
-                        <div class="caption-port-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="{{ URL::asset('assets/img/portfolio/Android - Tebak Hewan.png') }}" alt="">
-                </a>
-            </div>
-            <div class="col-sm-4 portfolios-item filter cross-platform">
-                <a class="portfolios-link" href="#portfolioModal3" data-toggle="modal">
-                    <div class="caption-port">
-                        <div class="caption-port-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="{{ URL::asset('assets/img/portfolio/Flutter - BMI.png') }}" alt="">
-                </a>
-            </div>
-            <div class="col-sm-4 portfolios-item filter datascience">
-                <a class="portfolios-link" href="#portfolioModal4" data-toggle="modal">
-                    <div class="caption-port">
-                        <div class="caption-port-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="{{ URL::asset('assets/img/portfolio/Data Science - Budget vs. Revenue.png') }}" alt="">
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <!--====================================================
-                        SKILLS
-    ======================================================-->
-    <section class=" d-flex flex-column" id="skills">
-        <div class="p-lg-5 p-3 skills-cover">
-            <div class="col-12">
-                <h2 class="text-center" style="color: white">Primary Skills</h2>
-                <div class="mb-5 heading-border"></div>
-            </div>
-            <div class="row text-center my-auto ">
-                <div class="col-md-3 col-sm-6">
-                    <div class="skills-item">
-                        <i class="fab fa-java fa-5x"></i>
-                        <h2><span class="counter"> 60 </span><span>%</span></h2>
-                        <p>JAVA</p>
-                    </div>
+        <div class="resume-item col-md-6 col-sm-12">
+            <div class="card mx-0 p-4 mb-5"
+                 style="border-color: #ffc107; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
+                <div class="resume-content mr-auto">
+                    <h4 class="mb-3"><i class="fa fa-laptop mr-3 text-warning"></i> Back-End Web Developer</h4>
+                    <p align="justify">Still new as a back-end web developer, I'm using Laravel Framework with PHP programming language. Already knew a few about REST API and decide to try build at least one this year. For futher, I'm looking for a CMS projects.
+                    </p>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skills-item">
-                        <i class="fab fa-python fa-5x"></i>
-                        <h2><span class="counter"> 65 </span><span>%</span></h2>
-                        <p>PYTHON</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skills-item">
-                        <i class="fab fa-php fa-5x"></i>
-                        <h2><span class="counter"> 80 </span><span>%</span></h2>
-                        <p>PHP</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skills-item">
-                        <i class="fab fa-laravel fa-5x"></i>
-                        <h2><span class="counter"> 60 </span><span>%</span></h2>
-                        <p>LARAVEL</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skills-item">
-                        <i class="fab fa-angular fa-5x"></i>
-                        <h2><span class="counter"> 40 </span><span>%</span></h2>
-                        <p>ANGULAR JS</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skills-item">
-                        <i class="fab fa-react fa-5x"></i>
-                        <h2><span class="counter"> 45 </span><span>%</span></h2>
-                        <p>REACT JS</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skills-item">
-                        <i class="fab fa-vuejs fa-5x"></i>
-                        <h2><span class="counter"> 50 </span><span>%</span></h2>
-                        <p>VUE JS</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skills-item">
-                        <i class="fab fa-node-js fa-5x"></i>
-                        <h2><span class="counter"> 30 </span><span>%</span></h2>
-                        <p>NODE JS</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skills-item">
-                        <i class="fab fa-html5 fa-5x"></i>
-                        <h2><span class="counter"> 70 </span><span>%</span></h2>
-                        <p>HTML</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skills-item">
-                        <i class="fab fa-css3-alt fa-5x"></i>
-                        <h2><span class="counter"> 65 </span><span>%</span></h2>
-                        <p>CSS</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skills-item">
-                        <i class="fas fa-database fa-5x"></i>
-                        <h2><span class="counter"> 70 </span><span>%</span></h2>
-                        <p>SQL</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skills-item">
-                        <i class="fas fa-code fa-5x"></i>
-                        <h2><span class="counter"> 75 </span><span>%</span></h2>
-                        <p>DART</p>
-                    </div>
+                <div class="resume-date text-md-right">
+                    <span class="text-primary">January 2020 - Now</span>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!--====================================================
-                          OTHER SKILLS
-    ======================================================-->
-    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="oskills">
-        <div class="row my-auto">
-            <div class="col-12">
-                <h2 class="text-center">Other Skills</h2>
-                <div class="mb-5 heading-border"></div>
-            </div>
-            <div class="skillbar clearfix" data-percent="80%" style="margin-bottom: 30px">
-                <div class="skillbar-title" style="background: #0d47a1; text-align: center;"><span>MICROSOFT WORD</span></div>
-                <div class="skillbar-bar" style="background: #1976d2;"></div>
-                <div class="skill-bar-percent" style="color: black">80%</div>
-            </div>
-
-            <div class="skillbar clearfix " data-percent="70%" style="margin-bottom: 30px">
-                <div class="skillbar-title" style="background: #27ae60; text-align: center;"><span>MICROSOFT EXCEL</span></div>
-                <div class="skillbar-bar" style="background: #2ecc71;"></div>
-                <div class="skill-bar-percent" style="color: black">70%</div>
-            </div>
-
-            <div class="skillbar clearfix " data-percent="70%" style="margin-bottom: 30px">
-                <div class="skillbar-title" style="background: #d35400; text-align: center;"><span>MICROSOFT POWER POINT</span></div>
-                <div class="skillbar-bar" style="background: #e67e22;"></div>
-                <div class="skill-bar-percent" style="color: black">70%</div>
-            </div>
-
-            <div class="skillbar clearfix " data-percent="75%" style="margin-bottom: 30px">
-                <div class="skillbar-title" style="background: #1e88e5; text-align: center;"><span>ADOBE PHOTOSHOP</span></div>
-                <div class="skillbar-bar" style="background: #3498db;"></div>
-                <div class="skill-bar-percent" style="color: black">75%</div>
-            </div>
-
-            <div class="skillbar clearfix " data-percent="45%" style="margin-bottom: 30px">
-                <div class="skillbar-title" style="background: #76ff03; text-align: center;"><span>COREL DRAW</span></div>
-                <div class="skillbar-bar" style="background: #b2ff59;"></div>
-                <div class="skill-bar-percent" style="color: black">45%</div>
-            </div>
-
-            <div class="skillbar clearfix " data-percent="40%" style="margin-bottom: 30px">
-                <div class="skillbar-title" style="background: #d32f2f; text-align: center;"><span>FIGMA</span></div>
-                <div class="skillbar-bar" style="background: #ef5350;"></div>
-                <div class="skill-bar-percent" style="color: black">40%</div>
-            </div>
-
-            <div class="skillbar clearfix " data-percent="30%" style="margin-bottom: 30px">
-                <div class="skillbar-title" style="background: #4e342e; text-align: center;"><span>10 FINGER TYPING</span></div>
-                <div class="skillbar-bar" style="background: #795548;"></div>
-                <div class="skill-bar-percent" style="color: black">30%</div>
-            </div>
-        </div>
-    </section>
-
-    <!--====================================================
-                           EDUCATIONS
-    ======================================================-->
-    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="educations">
-        <div class="row my-auto">
-            <div class="col-12">
-                <h2 class="text-center">Educations</h2>
-                <div class="mb-5 heading-border"></div>
-            </div>
-            <div class="main-educations" id="educations-box">
-                <div class="educations">
-                    <div class="educations-icon"></div>
-                    <div class="educations-content">
-                        <span class="date">2004 - 2006</span>
-                        <h5 class="title">TK PKK DIPONEGORO</h5>
-                        <p class="description">
-                            Has completed childhood education at kindergarten TK PKK DIPONEGORO.
-                        </p>
-                    </div>
+        <div class="resume-item col-md-6 col-sm-12">
+            <div class="card mx-0 p-4 mb-5"
+                 style="border-color: #28a745; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
+                <div class="resume-content mr-auto">
+                    <h4 class="mb-3"><i class="fas fa-mobile-alt mr-3 text-success"></i> Android Apps Developer</h4>
+                    <p align="justify">
+                        Interested for using Java programming language inside Android Studio, I'm still in progress to learning native Android development until now. For futher, I'll try to build some simple apps first before taking on large projects.
+                    </p>
                 </div>
-                <div class="educations">
-                    <div class="educations-icon"></div>
-                    <div class="educations-content">
-                        <span class="date">2006 - 2010</span>
-                        <h5 class="title">SDN SELODONO</h5>
-                        <p class="description">
-                            Has completed elementary education at SDN Selodono from 1st grade to 4th grade and then
-                            moved to a new school.
-                        </p>
-                    </div>
-                </div>
-                <div class="educations">
-                    <div class="educations-icon"></div>
-                    <div class="educations-content">
-                        <span class="date">2010 - 2011</span>
-                        <h5 class="title">SDN GOGORANTE</h5>
-                        <p class="description">
-                            Has completed elementary education at SDN Gogorante from 5th grade to 6th grade after moving
-                            from the old school.
-                        </p>
-                    </div>
-                </div>
-                <div class="educations">
-                    <div class="educations-icon"></div>
-                    <div class="educations-content">
-                        <span class="date">2011 - 2014</span>
-                        <h5 class="title">MTSN 5 KEDIRI</h5>
-                        <p class="description">
-                            Has completed junior high school education with superior classes at MTsN 5 Kediri.
-                        </p>
-                    </div>
-                </div>
-                <div class="educations">
-                    <div class="educations-icon"></div>
-                    <div class="educations-content">
-                        <span class="date">2014 - 2017</span>
-                        <h5 class="title">SMAN 8 KEDIRI</h5>
-                        <p class="description">
-                            Have completed senior high school with majoring in (IPA) Natural Sciences at SMAN 8 Kediri.
-                        </p>
-                    </div>
-                </div>
-                <div class="educations">
-                    <div class="educations-icon"></div>
-                    <div class="educations-content">
-                        <span class="date">2017 - Now</span>
-                        <h5 class="title">UNIVERSITAS DIPONEGORO</h5>
-                        <p class="description">
-                            Currently pursuing a Bachelor of Computer Engineering education which until now is in the
-                            6th semester at Diponegoro University, Semarang.
-                        </p>
-                    </div>
+                <div class="resume-date text-md-right">
+                    <span class="text-primary">August 2019 - Now</span>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="resume-item col-md-6 col-sm-12">
+            <div class="card mx-0 p-4 mb-5"
+                 style="border-color: #2196f3; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
+                <div class="resume-content mr-auto">
+                    <h4 class="mb-3"><i class="fas fa-mobile-alt mr-3 text-primary"></i> Cross-Platform Apps Developer</h4>
+                    <p align="justify">
+                        As cross-platform apps developer, I'm using Dart programming language with Flutter plugin inside Android Studio to build apps. For further, I'm still learning React Native as a popular programming language on this decade.
+                    </p>
+                </div>
+                <div class="resume-date text-md-right">
+                    <span class="text-primary">December 2018 - Now</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--====================================================
+                    PORTFOLIOS
+======================================================-->
+<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="portfolios">
+    <div class="row my-auto">
+        <div class="col-12">
+            <h2 class="text-center">Portfolios</h2>
+            <div class="mb-5 heading-border"></div>
+        </div>
+        <div class="col-md-12">
+            <div class="port-head-cont">
+                <button class="btn btn-general btn-green filter-b" data-filter="all">All</button>
+                <button class="btn btn-general btn-green filter-b" data-filter="web">Web Projects</button>
+                <button class="btn btn-general btn-green filter-b" data-filter="android">Android Projects</button>
+                <button class="btn btn-general btn-green filter-b" data-filter="cross-platform">Cross-Platform Projects</button>
+                <button class="btn btn-general btn-green filter-b" data-filter="datascience">Data Science Projects</button>
+            </div>
+        </div>
+    </div>
+    <div class="row my-auto">
+        <div class="col-sm-4 portfolios-item filter web">
+            <a class="portfolios-link" href="#portfolioModal1" data-toggle="modal">
+                <div class="caption-port">
+                    <div class="caption-port-content">
+                        <i class="fa fa-search-plus fa-3x"></i>
+                    </div>
+                </div>
+                <img class="img-fluid" src="{{ URL::asset('assets/img/portfolio/Web - Adelwine.png') }}" alt="">
+            </a>
+        </div>
+        <div class="col-sm-4 portfolios-item filter android">
+            <a class="portfolios-link" href="#portfolioModal2" data-toggle="modal">
+                <div class="caption-port">
+                    <div class="caption-port-content">
+                        <i class="fa fa-search-plus fa-3x"></i>
+                    </div>
+                </div>
+                <img class="img-fluid" src="{{ URL::asset('assets/img/portfolio/Android - Tebak Hewan.png') }}" alt="">
+            </a>
+        </div>
+        <div class="col-sm-4 portfolios-item filter cross-platform">
+            <a class="portfolios-link" href="#portfolioModal3" data-toggle="modal">
+                <div class="caption-port">
+                    <div class="caption-port-content">
+                        <i class="fa fa-search-plus fa-3x"></i>
+                    </div>
+                </div>
+                <img class="img-fluid" src="{{ URL::asset('assets/img/portfolio/Flutter - BMI.png') }}" alt="">
+            </a>
+        </div>
+        <div class="col-sm-4 portfolios-item filter datascience">
+            <a class="portfolios-link" href="#portfolioModal4" data-toggle="modal">
+                <div class="caption-port">
+                    <div class="caption-port-content">
+                        <i class="fa fa-search-plus fa-3x"></i>
+                    </div>
+                </div>
+                <img class="img-fluid" src="{{ URL::asset('assets/img/portfolio/Data Science - Budget vs. Revenue.png') }}" alt="">
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!--====================================================
+                    SKILLS
+======================================================-->
+<section class=" d-flex flex-column" id="skills">
+    <div class="p-lg-5 p-3 skills-cover">
+        <div class="col-12">
+            <h2 class="text-center" style="color: white">Primary Skills</h2>
+            <div class="mb-5 heading-border"></div>
+        </div>
+        <div class="row text-center my-auto ">
+            <div class="col-md-3 col-sm-6">
+                <div class="skills-item">
+                    <i class="fab fa-java fa-5x"></i>
+                    <h2><span class="counter"> 60 </span><span>%</span></h2>
+                    <p>JAVA</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="skills-item">
+                    <i class="fab fa-python fa-5x"></i>
+                    <h2><span class="counter"> 65 </span><span>%</span></h2>
+                    <p>PYTHON</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="skills-item">
+                    <i class="fab fa-php fa-5x"></i>
+                    <h2><span class="counter"> 80 </span><span>%</span></h2>
+                    <p>PHP</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="skills-item">
+                    <i class="fab fa-laravel fa-5x"></i>
+                    <h2><span class="counter"> 60 </span><span>%</span></h2>
+                    <p>LARAVEL</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="skills-item">
+                    <i class="fab fa-angular fa-5x"></i>
+                    <h2><span class="counter"> 40 </span><span>%</span></h2>
+                    <p>ANGULAR JS</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="skills-item">
+                    <i class="fab fa-react fa-5x"></i>
+                    <h2><span class="counter"> 45 </span><span>%</span></h2>
+                    <p>REACT JS</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="skills-item">
+                    <i class="fab fa-vuejs fa-5x"></i>
+                    <h2><span class="counter"> 50 </span><span>%</span></h2>
+                    <p>VUE JS</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="skills-item">
+                    <i class="fab fa-node-js fa-5x"></i>
+                    <h2><span class="counter"> 30 </span><span>%</span></h2>
+                    <p>NODE JS</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="skills-item">
+                    <i class="fab fa-html5 fa-5x"></i>
+                    <h2><span class="counter"> 70 </span><span>%</span></h2>
+                    <p>HTML</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="skills-item">
+                    <i class="fab fa-css3-alt fa-5x"></i>
+                    <h2><span class="counter"> 65 </span><span>%</span></h2>
+                    <p>CSS</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="skills-item">
+                    <i class="fas fa-database fa-5x"></i>
+                    <h2><span class="counter"> 70 </span><span>%</span></h2>
+                    <p>SQL</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="skills-item">
+                    <i class="fas fa-code fa-5x"></i>
+                    <h2><span class="counter"> 75 </span><span>%</span></h2>
+                    <p>DART</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--====================================================
+                      OTHER SKILLS
+======================================================-->
+<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="oskills">
+    <div class="row my-auto">
+        <div class="col-12">
+            <h2 class="text-center">Other Skills</h2>
+            <div class="mb-5 heading-border"></div>
+        </div>
+        <div class="skillbar clearfix" data-percent="80%" style="margin-bottom: 30px">
+            <div class="skillbar-title" style="background: #0d47a1; text-align: center;"><span>MICROSOFT WORD</span></div>
+            <div class="skillbar-bar" style="background: #1976d2;"></div>
+            <div class="skill-bar-percent" style="color: black">80%</div>
+        </div>
+
+        <div class="skillbar clearfix " data-percent="70%" style="margin-bottom: 30px">
+            <div class="skillbar-title" style="background: #27ae60; text-align: center;"><span>MICROSOFT EXCEL</span></div>
+            <div class="skillbar-bar" style="background: #2ecc71;"></div>
+            <div class="skill-bar-percent" style="color: black">70%</div>
+        </div>
+
+        <div class="skillbar clearfix " data-percent="70%" style="margin-bottom: 30px">
+            <div class="skillbar-title" style="background: #d35400; text-align: center;"><span>MICROSOFT POWER POINT</span></div>
+            <div class="skillbar-bar" style="background: #e67e22;"></div>
+            <div class="skill-bar-percent" style="color: black">70%</div>
+        </div>
+
+        <div class="skillbar clearfix " data-percent="75%" style="margin-bottom: 30px">
+            <div class="skillbar-title" style="background: #1e88e5; text-align: center;"><span>ADOBE PHOTOSHOP</span></div>
+            <div class="skillbar-bar" style="background: #3498db;"></div>
+            <div class="skill-bar-percent" style="color: black">75%</div>
+        </div>
+
+        <div class="skillbar clearfix " data-percent="45%" style="margin-bottom: 30px">
+            <div class="skillbar-title" style="background: #76ff03; text-align: center;"><span>COREL DRAW</span></div>
+            <div class="skillbar-bar" style="background: #b2ff59;"></div>
+            <div class="skill-bar-percent" style="color: black">45%</div>
+        </div>
+
+        <div class="skillbar clearfix " data-percent="40%" style="margin-bottom: 30px">
+            <div class="skillbar-title" style="background: #d32f2f; text-align: center;"><span>FIGMA</span></div>
+            <div class="skillbar-bar" style="background: #ef5350;"></div>
+            <div class="skill-bar-percent" style="color: black">40%</div>
+        </div>
+
+        <div class="skillbar clearfix " data-percent="30%" style="margin-bottom: 30px">
+            <div class="skillbar-title" style="background: #4e342e; text-align: center;"><span>10 FINGER TYPING</span></div>
+            <div class="skillbar-bar" style="background: #795548;"></div>
+            <div class="skill-bar-percent" style="color: black">30%</div>
+        </div>
+    </div>
+</section>
+
+<!--====================================================
+                       EDUCATIONS
+======================================================-->
+<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="educations">
+    <div class="row my-auto">
+        <div class="col-12">
+            <h2 class="text-center">Educations</h2>
+            <div class="mb-5 heading-border"></div>
+        </div>
+        <div class="main-educations" id="educations-box">
+
+            {{--                <div class="educations">--}}
+            {{--                    <div class="educations-icon"></div>--}}
+            {{--                    <div class="educations-content">--}}
+            {{--                        <span class="date">2004 - 2006</span>--}}
+            {{--                        <h5 class="title">TK PKK DIPONEGORO</h5>--}}
+            {{--                        <p class="description">--}}
+            {{--                            Has completed childhood education at kindergarten TK PKK DIPONEGORO.--}}
+            {{--                        </p>--}}
+            {{--                    </div>--}}
+            {{--                </div>--}}
+            {{--                <div class="educations">--}}
+            {{--                    <div class="educations-icon"></div>--}}
+            {{--                    <div class="educations-content">--}}
+            {{--                        <span class="date">2006 - 2010</span>--}}
+            {{--                        <h5 class="title">SDN SELODONO</h5>--}}
+            {{--                        <p class="description">--}}
+            {{--                            Has completed elementary education at SDN Selodono from 1st grade to 4th grade and then--}}
+            {{--                            moved to a new school.--}}
+            {{--                        </p>--}}
+            {{--                    </div>--}}
+            {{--                </div>--}}
+            {{--                <div class="educations">--}}
+            {{--                    <div class="educations-icon"></div>--}}
+            {{--                    <div class="educations-content">--}}
+            {{--                        <span class="date">2010 - 2011</span>--}}
+            {{--                        <h5 class="title">SDN GOGORANTE</h5>--}}
+            {{--                        <p class="description">--}}
+            {{--                            Has completed elementary education at SDN Gogorante from 5th grade to 6th grade after moving--}}
+            {{--                            from the old school.--}}
+            {{--                        </p>--}}
+            {{--                    </div>--}}
+            {{--                </div>--}}
+
+            <div class="educations">
+                <div class="educations-icon"></div>
+                <div class="educations-content">
+                    <span class="date">2011 - 2014</span>
+                    <h5 class="title">MTSN 5 KEDIRI</h5>
+                    <p class="description">
+                        Has completed junior high school education with superior classes at MTsN 5 Kediri.
+                    </p>
+                </div>
+            </div>
+            <div class="educations">
+                <div class="educations-icon"></div>
+                <div class="educations-content">
+                    <span class="date">2014 - 2017</span>
+                    <h5 class="title">SMAN 8 KEDIRI</h5>
+                    <p class="description">
+                        Have completed senior high school with majoring in (IPA) Natural Sciences at SMAN 8 Kediri.
+                    </p>
+                </div>
+            </div>
+            <div class="educations">
+                <div class="educations-icon"></div>
+                <div class="educations-content">
+                    <span class="date">2017 - Now</span>
+                    <h5 class="title">UNIVERSITAS DIPONEGORO</h5>
+                    <p class="description">
+                        Currently pursuing a Bachelor of Computer Engineering education which until now is in the
+                        6th semester at Diponegoro University, Semarang.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {{--    <!--====================================================--}}
 {{--                          CONTACTS--}}
@@ -735,37 +821,37 @@
 {{--        </div>--}}
 {{--    </section>--}}
 
-    <!--====================================================
-                    NAVIGATIONS
-    ======================================================-->
-    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="maps">
-        <div class="row my-auto">
-            <div class="col-12">
-                <h2 class="text-center">Navigations</h2>
-                <div class="mb-5 heading-border">
-                </div>
-            </div>
+{{--    <!--====================================================--}}
+{{--                    NAVIGATIONS--}}
+{{--    ======================================================-->--}}
+{{--    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="maps">--}}
+{{--        <div class="row my-auto">--}}
+{{--            <div class="col-12">--}}
+{{--                <h2 class="text-center">Navigations</h2>--}}
+{{--                <div class="mb-5 heading-border">--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            <div class="resume-item col-md-6 col-sm-12">
-                <div class="card mx-0 p-4 mb-5" style="border-color: #2196f3; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
-                    <div class="google-maps">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d940.5858543035417!2d112.04808432918722!3d-7.813449670994036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78592de9a894ed%3A0x82204b821b5086a0!2sumi%20house!5e1!3m2!1sen!2sid!4v1582258712594!5m2!1sen!2sid" width="650" height="600" frameborder="0" style="border:0;" allowfullscreen="">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
+{{--            <div class="resume-item col-md-6 col-sm-12">--}}
+{{--                <div class="card mx-0 p-4 mb-5" style="border-color: #2196f3; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">--}}
+{{--                    <div class="google-maps">--}}
+{{--                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d940.5858543035417!2d112.04808432918722!3d-7.813449670994036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78592de9a894ed%3A0x82204b821b5086a0!2sumi%20house!5e1!3m2!1sen!2sid!4v1582258712594!5m2!1sen!2sid" width="650" height="600" frameborder="0" style="border:0;" allowfullscreen="">--}}
+{{--                        </iframe>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            <div class="resume-item col-md-6 col-sm-12">
-                <div class="card mx-0 p-4 mb-5" style="border-color: #2196f3; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">
-                    <div class="google-maps">
-                        <iframe src="https://www.google.com/maps/embed?pb=!4v1582258175236!6m8!1m7!1sq4my7SxvNtz59OtF6Qlhnw!2m2!1d-7.81353606465098!2d112.0487389701369!3f358.35828!4f0!5f0.7820865974627469" width="650" height="600" frameborder="0" style="border:0;" allowfullscreen="">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
+{{--            <div class="resume-item col-md-6 col-sm-12">--}}
+{{--                <div class="card mx-0 p-4 mb-5" style="border-color: #2196f3; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.21);">--}}
+{{--                    <div class="google-maps">--}}
+{{--                        <iframe src="https://www.google.com/maps/embed?pb=!4v1582258175236!6m8!1m7!1sq4my7SxvNtz59OtF6Qlhnw!2m2!1d-7.81353606465098!2d112.0487389701369!3f358.35828!4f0!5f0.7820865974627469" width="650" height="600" frameborder="0" style="border:0;" allowfullscreen="">--}}
+{{--                        </iframe>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-        </div>
-    </section>
+{{--        </div>--}}
+{{--    </section>--}}
 
 </div>
 
@@ -798,13 +884,13 @@
                                 <p align="justify"><font color="black">SAYA MALAS MENJELASKAN, Intinya ini web development.</font></p>
                                 <ul class="list-inline item-details">
                                     <li style="color: black"><strong>Client : </strong>
-                                            <a href="https://adelwine.org">Adelwine</a>
+                                        <a href="https://adelwine.org">Adelwine</a>
                                     </li>
                                     <li style="color: black"><strong>Date : </strong>
-                                            <a href="https://adelwine.org">February 2020</a>
+                                        <a href="https://adelwine.org">February 2020</a>
                                     </li>
                                     <li style="color: black"><strong>Service : </strong>
-                                            <a href="https://adelwine.org">Web</a>
+                                        <a href="https://adelwine.org">Web</a>
                                     </li>
                                 </ul>
                                 <button class="btn btn-general btn-white" type="button" data-dismiss="modal">

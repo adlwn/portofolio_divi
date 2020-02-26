@@ -56,7 +56,7 @@ a:active {
                   SOCIAL-ICON
 ====================================================*/
   .list-social-icons a {
-      color: #495057;
+      color: #000000;
   }
 
   .list-social-icons a:hover {
@@ -102,7 +102,7 @@ a:active {
       #sideNav .navbar-brand .img-profile {
           max-width: 10rem;
           max-height: 10rem;
-          border: 0.5rem solid rgba(255, 255, 255, 0.2);
+          border: 0.6rem solid rgba(255, 255, 255, 1);
       }
       #sideNav .navbar-collapse {
           display: flex;
