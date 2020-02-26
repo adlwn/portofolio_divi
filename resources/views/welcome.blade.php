@@ -27,13 +27,25 @@
 
 <style type="text/css">
 
+    * {cursor: url(http://cur.cursors-4u.net/cursors/cur-8/cur727.png), auto !important;
+    }
 
-
-
-
-
-
-
+    ::-webkit-scrollbar {
+        width: 20px;
+        height: 20px;
+    }
+    ::-webkit-scrollbar-track {
+         background: #2196f3;
+         box-shadow: 2px 2px 2px 2px #000000;
+     }
+    ::-webkit-scrollbar-thumb {
+         border-radius: 10px;
+         background: #2196f3;
+         box-shadow: inset 0 0 2px 2px #ffffff;
+     }
+    ::-webkit-scrollbar-thumb:hover {
+         background: black;
+     }
 
     .wrapper_tag {
         position: relative;
@@ -272,12 +284,9 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none  mx-0 px-0"><img src="{{ URL::asset('assets/img/logo-white.png') }}" alt="" class="img-fluid"></span>
+        <span class="d-block d-lg-none mx-0 px-0"><img src="{{ URL::asset('assets/img/logo-white.png') }}" alt="" class="img-fluid"></span>
         <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ URL::asset('assets/img/profile.jpg') }}" alt=""></span>
     </a>
-
-
-
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -322,7 +331,7 @@
         <div class="my-auto">
 
             <ul class="list-inline list-social-icons">
-                <li class="list-inline-item" style="margin-right: -5px">
+                <li class="list-inline-item" style="margin-right: 7px">
                     <a href="https://facebook.com/divianisok">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
@@ -330,7 +339,7 @@
                         </span>
                     </a>
                 </li>
-                <li class="list-inline-item" style="margin-right: -5px">
+                <li class="list-inline-item" style="margin-right: 7px">
                     <a href="https://www.instagram.com/divianisok">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
@@ -338,7 +347,7 @@
                         </span>
                     </a>
                 </li>
-                <li class="list-inline-item" style="margin-right: -5px">
+                <li class="list-inline-item" style="margin-right: 7px">
                     <a href="https://www.linkedin.com/in/divianis-oktaviyani-59855119b">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
@@ -346,7 +355,7 @@
                         </span>
                     </a>
                 </li>
-                <li class="list-inline-item" style="margin-right: -5px">
+                <li class="list-inline-item" style="margin-right: 7px">
                     <a href="https://github.com/divianis">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
@@ -354,19 +363,11 @@
                         </span>
                     </a>
                 </li>
-                <li class="list-inline-item" style="margin-right: -5px">
+                <li class="list-inline-item" style="margin-right: 7px">
                     <a href="https://gitlab.com/divianis">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
                             <i class="fab fa-gitlab fa-stack-1x fa-inverse fa-spin"></i>
-                        </span>
-                    </a>
-                </li>
-                <li class="list-inline-item" style="margin-right: -5px">
-                    <a href="https://stackoverflow.com/users/11714562/divianis">
-                        <span class="fa-stack fa-lg">
-                            <i class="fas fa-circle fa-stack-2x"></i>
-                            <i class="fab fa-stack-overflow fa-stack-1x fa-inverse fa-spin"></i>
                         </span>
                     </a>
                 </li>
