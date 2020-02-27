@@ -102,8 +102,24 @@ a:active {
       #sideNav .navbar-brand .img-profile {
           max-width: 10rem;
           max-height: 10rem;
-          border: 0.6rem solid rgba(255, 255, 255, 1);
       }
+
+      .hovicon.effect-9 {
+          -webkit-transition: transform 1s ease-in-out, box-shadow 1s;
+          -moz-transition: transform 1s ease-in-out, box-shadow 1s;
+          transition: transform 1s ease-in-out, box-shadow 1s;
+      }
+
+      .hovicon.effect-9.sub-a:hover {
+          box-shadow: 0 0 0 10px rgba(255, 255, 255, 1);
+          color: #fff;
+          transform:scale(1.2);
+          z-index:10;
+          -webkit-transition: transform 1s ease-in-out, box-shadow 1s;
+          -moz-transition: transform 1s ease-in-out, box-shadow 1s;
+          transition: transform 1s ease-in-out, box-shadow 1s;
+      }
+
       #sideNav .navbar-collapse {
           display: flex;
           align-items: flex-start;

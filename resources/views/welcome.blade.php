@@ -104,7 +104,7 @@
         transition: 4s 0.2s;
     }
 
-    * {cursor: url(http://cur.cursors-4u.net/cursors/cur-8/cur727.png), auto !important;
+    * {cursor: url(/assets/img/cur727.png), auto !important;
     }
 
     ::-webkit-scrollbar {
@@ -355,6 +355,7 @@
         width: 650px !important;
         height: 600px !important;
     }
+
 </style>
 
 <body id="page-top">
@@ -383,10 +384,12 @@
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <span class="d-block d-lg-none mx-0 px-0"><img src="{{ URL::asset('assets/img/logo-white.png') }}" alt="" class="img-fluid"></span>
-        <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ URL::asset('assets/img/profile.jpg') }}" alt=""></span>
+        <span class="d-none d-lg-block"><img class=" hovicon effect-9 sub-a img-profile rounded-circle mx-auto" style="margin-bottom: 35px" src="{{ URL::asset('assets/img/profile.jpg') }}" alt="Divianis"></span>
     </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -432,7 +435,7 @@
 
             <ul class="list-inline list-social-icons">
                 <li class="list-inline-item" style="margin-right: 7px">
-                    <a href="https://facebook.com/divianisok">
+                    <a href="https://facebook.com/divianisok" title="Vian's FB" target="_blank">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
                             <i class="fab fa-facebook fa-stack-1x fa-inverse fa-spin"></i>
@@ -440,7 +443,7 @@
                     </a>
                 </li>
                 <li class="list-inline-item" style="margin-right: 7px">
-                    <a href="https://www.instagram.com/divianisok">
+                    <a href="https://www.instagram.com/divianisok" title="Vian's IG" target="_blank">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
                             <i class="fab fa-instagram fa-stack-1x fa-inverse fa-spin"></i>
@@ -448,7 +451,7 @@
                     </a>
                 </li>
                 <li class="list-inline-item" style="margin-right: 7px">
-                    <a href="https://www.linkedin.com/in/divianis-oktaviyani-59855119b">
+                    <a href="https://www.linkedin.com/in/divianis-oktaviyani-59855119b" title="Vian's LI" target="_blank">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
                             <i class="fab fa-linkedin fa-stack-1x fa-inverse fa-spin"></i>
@@ -456,7 +459,7 @@
                     </a>
                 </li>
                 <li class="list-inline-item" style="margin-right: 7px">
-                    <a href="https://github.com/divianis">
+                    <a href="https://github.com/divianis" title="Vian's GH" target="_blank">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
                             <i class="fab fa-github fa-stack-1x fa-inverse fa-spin"></i>
@@ -464,7 +467,7 @@
                     </a>
                 </li>
                 <li class="list-inline-item" style="margin-right: 7px">
-                    <a href="https://gitlab.com/divianis">
+                    <a href="https://gitlab.com/divianis" title="Vian's GL" target="_blank">
                         <span class="fa-stack fa-lg">
                             <i class="fas fa-circle fa-stack-2x"></i>
                             <i class="fab fa-gitlab fa-stack-1x fa-inverse fa-spin"></i>
@@ -998,13 +1001,13 @@
                                 <p align="justify"><font color="black">SAYA MALAS MENJELASKAN, Intinya ini web development.</font></p>
                                 <ul class="list-inline item-details">
                                     <li style="color: black"><strong>Client : </strong>
-                                        <a href="https://adelwine.org">Adelwine</a>
+                                        <a href="https://adelwine.org" target="_blank">Adelwine</a>
                                     </li>
                                     <li style="color: black"><strong>Date : </strong>
-                                        <a href="https://adelwine.org">February 2020</a>
+                                        <a href="https://adelwine.org" target="_blank">February 2020</a>
                                     </li>
                                     <li style="color: black"><strong>Service : </strong>
-                                        <a href="https://adelwine.org">Web</a>
+                                        <a href="https://adelwine.org" target="_blank">Web</a>
                                     </li>
                                 </ul>
                                 <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
@@ -1044,13 +1047,13 @@
                                 <p align="justify"><font color="black">SAYA MALAS MENJELASKAN, Intinya ini android native development.</font></p>
                                 <ul class="list-inline item-details">
                                     <li style="color: black"><strong>Client : </strong>
-                                        <a href="#">Tugas Akhir Praktikum DKP</a>
+                                        <a href="#"  target="_blank">Tugas Akhir Praktikum MDP</a>
                                     </li>
                                     <li style="color: black"><strong>Date : </strong>
-                                        <a href="#">December 2019</a>
+                                        <a href="#" target="_blank">December 2019</a>
                                     </li>
                                     <li style="color: black"><strong>Service : </strong>
-                                        <a href="#">Android</a>
+                                        <a href="#" target="_blank">Android</a>
                                     </li>
                                 </ul>
                                 <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
@@ -1090,13 +1093,13 @@
                                 <p align="justify"><font color="black">SAYA MALAS MENJELASKAN, Intinya ini flutter cross-platform development.</font></p>
                                 <ul class="list-inline item-details">
                                     <li style="color: black"><strong>Client : </strong>
-                                        <a href="#">Nobody</a>
+                                        <a href="#" target="_blank">Nobody</a>
                                     </li>
                                     <li style="color: black"><strong>Date : </strong>
-                                        <a href="#">May 2019</a>
+                                        <a href="#" target="_blank">May 2019</a>
                                     </li>
                                     <li style="color: black"><strong>Service : </strong>
-                                        <a href="#">Cross-Platform</a>
+                                        <a href="#" target="_blank">Cross-Platform</a>
                                     </li>
                                 </ul>
                                 <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
@@ -1136,13 +1139,13 @@
                                 <p align="justify"><font color="black">SAYA MALAS MENJELASKAN, Intinya ini data science.</font></p>
                                 <ul class="list-inline item-details">
                                     <li style="color: black"><strong>Client : </strong>
-                                        <a href="#">Nobody</a>
+                                        <a href="#" target="_blank">Nobody</a>
                                     </li>
                                     <li style="color: black"><strong>Date : </strong>
-                                        <a href="#">January 2020</a>
+                                        <a href="#" target="_blank">January 2020</a>
                                     </li>
                                     <li style="color: black"><strong>Service : </strong>
-                                        <a href="#">Data Science</a>
+                                        <a href="#" target="_blank">Data Science</a>
                                     </li>
                                 </ul>
                                 <button class="btn btn-general btn-white" type="button" data-dismiss="modal">
@@ -1172,7 +1175,7 @@
 <script src="{{ URL::asset('assets/js/custom.js') }}"></script>
 
 <script>
-    ;(function(){
+    (function(){
         function id(v){return document.getElementById(v); }
         function loadbar() {
             var ovrl = id("overlay"),
