@@ -27,6 +27,83 @@
 
 <style type="text/css">
 
+    .dot {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background-color: #000;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .dot-3 {
+        background-color: #2196f3;
+        animation: dot-3-move 2s ease infinite, index 1s -4s ease infinite;
+    }
+
+    .dot-2 {
+        background-color: #28a745;
+        animation: dot-2-move 2s ease infinite, index 1s -4s ease infinite;
+    }
+
+    .dot-1 {
+        background-color: #ffc107;
+        animation: dot-1-move 2s ease infinite, index 1s -4s ease infinite;
+    }
+
+    @keyframes dot-3-move {
+        20% {transform: scale(1)}
+        45% {transform: translateY(-18px) scale(.45)}
+        60% {transform: translateY(-90px) scale(.45)}
+        80% {transform: translateY(-90px) scale(.45)}
+        100% {transform: translateY(0px) scale(1)}
+    }
+
+    @keyframes dot-2-move {
+        20% {transform: scale(1)}
+        45% {transform: translate(-16px, 12px) scale(.45)}
+        60% {transform: translate(-80px, 60px) scale(.45)}
+        80% {transform: translate(-80px, 60px) scale(.45)}
+        100% {transform: translateY(0px) scale(1)}
+    }
+
+    @keyframes dot-1-move {
+        20% {transform: scale(1)}
+        45% {transform: translate(16px, 12px) scale(.45)}
+        60% {transform: translate(80px, 60px) scale(.45)}
+        80% {transform: translate(80px, 60px) scale(.45)}
+        100% {transform: translateY(0px) scale(1)}
+    }
+
+    @keyframes rotate-move {
+        55% {transform: translate(-50%, -50%) rotate(0deg)}
+        80% {transform: translate(-50%, -50%) rotate(360deg)}
+        100% {transform: translate(-50%, -50%) rotate(360deg)}
+    }
+
+    @keyframes index {
+        0%, 100% {z-index: 3}
+        33.3% {z-index: 2}
+        66.6% {z-index: 1}
+    }
+
+    *{margin:0;}
+
+    #overlay {
+        position: fixed;
+        z-index: 99999;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        transition: 4s 0.2s;
+    }
+
     * {cursor: url(http://cur.cursors-4u.net/cursors/cur-8/cur727.png), auto !important;
     }
 
@@ -281,6 +358,29 @@
 </style>
 
 <body id="page-top">
+
+<div id="overlay">
+    <div class="container" style="
+    animation: rotate-move 2s ease-in-out infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);">
+        <div class="dot dot-1"></div>
+        <div class="dot dot-2"></div>
+        <div class="dot dot-3"></div>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7"/>
+            </filter>
+        </defs>
+    </svg>
+
+</div>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
@@ -1070,6 +1170,37 @@
 <script src="{{ URL::asset('assets/js/counter/jquery.waypoints.min.js') }}"></script>
 <script src="{{ URL::asset('assets/js/counter/jquery.counterup.min.js') }}"></script>
 <script src="{{ URL::asset('assets/js/custom.js') }}"></script>
+
+<script>
+    ;(function(){
+        function id(v){return document.getElementById(v); }
+        function loadbar() {
+            var ovrl = id("overlay"),
+                img = document.images,
+                c = 0;
+            tot = img.length;
+
+            function imgLoaded(){
+                c += 1;
+                var perc = ((100/tot*c) << 0);
+                if(c===tot) return doneLoading();
+            }
+            function doneLoading(){
+                ovrl.style.opacity = 0;
+                setTimeout(function(){
+                    ovrl.style.display = "none";
+                }, 2000);
+            }
+            for(var i=0; i<tot; i++) {
+                var tImg     = new Image();
+                tImg.onload  = imgLoaded;
+                tImg.onerror = imgLoaded;
+                tImg.src     = img[i].src;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', loadbar, false);
+    }());
+</script>
 
 <script>
     jQuery(document).ready(function(){
